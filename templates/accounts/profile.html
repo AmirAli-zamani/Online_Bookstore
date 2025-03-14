@@ -1,0 +1,8 @@
+<h2>Your comments</h2>
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment.content }} - {{ comment.created_at }}</li>
+    {% empty %}
+        <li>No Comments</li>
+    {% endfor %}
+</ul>

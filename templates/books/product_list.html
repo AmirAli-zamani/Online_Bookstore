@@ -1,0 +1,12 @@
+{% extends 'books/base_book.html' %}
+
+{% block title %} product-list {% endblock %}
+
+{% block data %}
+    <h3>Hello {{request.user.username}}</h3>
+    {% for product in products %}
+        <a href="{% url 'product-list' product %}">{{product.title}}</a>
+    <br>
+    {% endfor %}
+        
+{% endblock %}
