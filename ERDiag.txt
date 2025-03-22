@@ -1,0 +1,44 @@
+Hint =
+	FK.N == foreignkey.Name
+	FK.I == foreignkey.Identity
+	
+	PK.N == primarykey.Name
+	PK.I == primarykey.Identity
+	
+
+                           +-------------+
+			   |    shelf    |
+                           +-------------+
+			   | id (pk)     |
+                           | name        |
+		    +----->| user (FK.I) |
+		    |	   | Book (FK.N) |<-------+
+		    |      | type        |	  |				 
+		    |	   +-------------+        |
+		    |				  |
+		    |				  |
+                    |      +-------------+        |   +----------------+          +-------------+
+                +---X----->|    User     |        |   |      Book      |          |  Category   |
+		|   | 	   +-------------+        |   +----------------+          +-------------+
+                |   +----->| id (PK)     |<-----+ +-->| id (PK)        |     +--->| id (PK)     |
+		| 	   | username    |      |     | title          |     |    | name        |
+		|	   | email       |      |     | category(FK.N) |-----+    | description |
+		|	   | password    |      |     | author         |          +-------------+
+                |          | ...         |      |     | price          |     
+                |          +-------------+      |     | stock          |
+                |                               |     +----------------+
+		|	                        |
+		|	   +-------------+      |     +-------------+          +-------------+
+		|	   |    Order    |      |     |  OrderItem  |          |   Review    |
+		|	   +-------------+      |     +-------------+          +-------------+
+		|	   | id (PK)     |      +-----| id (PK)     |     +--->| id (PK)     |
+		|	   | user(FK.N)  |------------| order(FK.I) |     |    | user(FK.N)  |
+	+-------------+    | created_at  |            | book(FK.N)  |-----+    | book(FK.N)  |
+	|    Login    |    | total_price |            | quantity    |          | rating      |
+	+-------------+    | status      |            +-------------+          | comment     |
+	| 	      |	   +-------------+                                     +-------------+
+	| Use django  |
+	| login panel |
+	|             |
+	+-------------+
+     
